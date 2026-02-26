@@ -1,0 +1,123 @@
+/* -------------------------------------------------
+   Exercise 1: Create Database & Collection
+------------------------------------------------- */
+
+db = db.getSiblingDB("examDB");
+
+db.students.insertOne({
+  name: "Yash Patel",
+  department: "IT",
+  semester: 4,
+  mobile: "1234567890"
+});
+
+db.students.insertOne({
+  name: "Jay Desai",
+  department: "CE",
+  semester: 5,
+  mobile: "1111111111"
+})
+
+/* -------------------------------------------------
+   Exercise 2: Insert Document with Multiple Fields
+------------------------------------------------- */
+
+db.students.insertOne({
+  name: "Karkar kurrrrr",
+  department: "Information Technology",
+  semester: 5,
+  mobile: "9876543210"
+})
+
+/* -------------------------------------------------
+   Exercise 3: Array of Simple Values
+------------------------------------------------- */
+
+db.subjects.insertOne({
+  course_name: "B.Tech IT",
+  subject_list: [
+    "Database Management System",
+    "Operating System",
+    "Computer Networks",
+    "Software Engineering",
+    "Web Development"
+  ]
+})
+
+/* -------------------------------------------------
+   Exercise 4: Array of Objects
+------------------------------------------------- */
+
+db.faculty.insertOne({
+  department: "Information Technology",
+  teachers: [
+    {
+      name: "Prof. A. Patel",
+      experience: 8
+    },
+    {
+      name: "Prof. R. Shah",
+      experience: 12
+    },
+    {
+      name: "Prof. K. Mehta",
+      experience: 5
+    }
+  ]
+})
+
+/* -------------------------------------------------
+   Exercise 5: Explicit Primary Key using ObjectId()
+------------------------------------------------- */
+
+db.students.insertOne({
+  _id: ObjectId(),
+  name: "Rahul Kumar",
+  department: "Computer Science",
+  semester: 6,
+  mobile: "9123456789"
+})
+
+/* -------------------------------------------------
+   Exercise 6: Duplicate _id Observation
+------------------------------------------------- */
+
+db.students.insertOne({
+  _id: ObjectId("65a1f2b9c1a4e2d8f1234567"),
+  name: "Amit Sharma",
+  department: "IT",
+  semester: 4,
+  mobile: "9000011111"
+})
+db.students.insertOne({
+  _id: ObjectId("65a1f2b9c1a4e2d8f1234567"),
+  name: "Neha Patel",
+  department: "CS",
+  semester: 5,
+  mobile: "9000022222"
+})
+
+/* -------------------------------------------------
+   Exercise 7: Multiple Inserts using insert()
+------------------------------------------------- */
+
+db.students.insert({
+  name: "Rohan Patel",
+  department: "IT",
+  semester: 3,
+  mobile: "9011111111"
+})
+
+db.students.insert({
+  name: "Neel Shah",
+  department: "CS",
+  semester: 5,
+  mobile: "9022222222"
+})
+
+db.students.insert({
+  name: "Priya Mehta",
+  department: "EC",
+  semester: 7,
+  mobile: "9033333333"
+})
